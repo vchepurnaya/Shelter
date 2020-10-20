@@ -1,0 +1,125 @@
+$color-primary: #F1CDB3;
+$color-light-xl: #FFFFFF;
+$color-dark-s: #CDCDCD;
+$color-light-s: #FAFAFA;
+
+
+.wrapper {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+  justify-content: space-between;
+}
+
+.header {
+  width: 100vw;
+  top: 60px;
+  position: absolute;
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+
+
+    &__title {
+      font-family: Georgia;
+      font-size: 32px;
+      color: $color-primary;
+      letter-spacing: 2px;
+      line-height: 110%;
+    }
+
+    &__subtitle {
+      color: $color-light-xl;
+      font-size: 13px;
+      line-height: 110%;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+
+  .menu {
+    display: flex;
+    width: 443px;
+
+    .list {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+
+      &__item {
+        display: flex;
+        align-items: center;
+      }
+
+      &__link {
+        color: $color-light-xl;
+        font-family: Arial;
+        font-size: 15px;
+        line-height: 160%;
+      }
+
+      &__link_active {
+        border-bottom: solid 3px #F1CDB3;
+        color: $color-light-s;
+      }
+
+      &__link_disabled {
+        color: $color-dark-s;
+      }
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+  .hero {
+    display: flex;
+    padding-top: 180px;
+    background: url(../../assets/images/noise_transparent@2x.png),
+    radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%),
+    #211F20;
+
+    &__content {
+      display: flex;
+
+      .content-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 84px;
+
+        &__title {
+          color: $color-light-xl;
+          font-size: 44px;
+          line-height: 130%;
+          font-family: Georgia;
+          max-width: 310px;
+          font-weight: 400;
+        }
+
+        &__subtitle {
+          margin-top: 42px;
+          font-family: Arial;
+          color: $color-dark-s;
+          line-height: 160%;
+        }
+
+        &__button {
+          width: 207px;
+          margin-top: 42px;
+          padding: 15px 45px;
+          border-radius: 100px;
+          background-color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+
+
+
