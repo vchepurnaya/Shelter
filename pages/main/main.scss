@@ -1,39 +1,143 @@
-$color-primary: #F1CDB3;
-$color-light-xl: #FFFFFF;
-$color-dark-s: #CDCDCD;
-$color-light-s: #FAFAFA;
+$color-primary-color: #F1CDB3;
+$color-primary-light: #F1CDB3;
 
+$color-light-s: #FAFAFA;
+$color-light-l: #F6F6F6;
+$color-light-xl: #FFFFFF;
+
+$color-dark-s: #CDCDCD;
+$color-dark-m: #B2B2B2;
+$color-dark-l: #545454;
+$color-dark-xl: #4C4C4C;
+$color-dark-2xl: #444444;
+$color-dark-3xl: #292929;
+
+$start-screen-gradient-background: url(../../assets/images/noise_transparent@2x.png),
+radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%),
+#211F20;
+
+$footer-gradient-background: url(../../assets/images/noise_transparent@2x.png),
+radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
+#211F20;
+
+@mixin h2 {
+  font: {
+    family: Georgia;
+    size: 44px;
+    weight: 400;
+  }
+  line-height: 130%;
+}
+
+@mixin h3 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 35px;
+  }
+  line-height: 130%;
+  letter-spacing: 0.06rem;
+}
+
+@mixin h4 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 35px;
+  }
+  line-height: 115%;
+  letter-spacing: 0.06rem;
+}
+
+@mixin h5 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 15px;
+  }
+  line-height: 110%;
+  letter-spacing: 0.06rem;
+}
+
+@mixin paragraph-l {
+  font: {
+    family: Arial;
+    style: normal;
+    weight: normal;
+    size: 15px;
+  }
+  line-height: 160%;
+}
+
+@mixin paragraph-s {
+  font: {
+    family: Arial;
+    style: italic;
+    weight: normal;
+    size: 12px;
+  }
+  line-height: 150%;
+}
+
+@mixin logo_title {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 32px;
+  }
+  line-height: 110%;
+  letter-spacing: 2px;
+}
+
+@mixin logo_subtitle {
+  font: {
+    family: Arial;
+    style: normal;
+    weight: normal;
+    size: 13px;
+  }
+  letter-spacing: 1.3px;
+  line-height: 15px;
+}
+
+@mixin slider__button {
+  border: 3px solid $color-primary-color;
+  border-radius: 100%;
+  padding: 19px;
+  background: none;
+}
 
 .wrapper {
   display: flex;
   margin: 0 auto;
   max-width: 1200px;
   justify-content: space-between;
+  flex: 1;
 }
 
 .header {
   width: 100vw;
+  max-width: 100%;
   top: 60px;
   position: absolute;
 
   .logo {
     display: flex;
     flex-direction: column;
-
+    margin-left: 8px;
 
     &__title {
-      font-family: Georgia;
-      font-size: 32px;
-      color: $color-primary;
-      letter-spacing: 2px;
-      line-height: 110%;
+      color: $color-primary-color;
+      @include logo_title;
     }
 
     &__subtitle {
       color: $color-light-xl;
-      font-size: 13px;
-      line-height: 110%;
-      letter-spacing: 2px;
+      @include logo_subtitle;
       margin-top: 10px;
       text-align: center;
     }
@@ -41,7 +145,7 @@ $color-light-s: #FAFAFA;
 
   .menu {
     display: flex;
-    width: 443px;
+    width: 434px;
 
     .list {
       display: flex;
@@ -58,15 +162,15 @@ $color-light-s: #FAFAFA;
         font-family: Arial;
         font-size: 15px;
         line-height: 160%;
-      }
 
-      &__link_active {
-        border-bottom: solid 3px #F1CDB3;
-        color: $color-light-s;
-      }
+        &_active {
+          border-bottom: solid 3px #F1CDB3;
+          color: $color-light-s;
+        }
 
-      &__link_disabled {
-        color: $color-dark-s;
+        &_disabled {
+          color: $color-dark-s;
+        }
       }
     }
   }
@@ -79,30 +183,29 @@ $color-light-s: #FAFAFA;
   .hero {
     display: flex;
     padding-top: 180px;
-    background: url(../../assets/images/noise_transparent@2x.png),
-    radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%),
-    #211F20;
+    background: $start-screen-gradient-background;
 
     &__content {
       display: flex;
+      width: 100%;
+      justify-content: space-between;
 
       .content-section {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-bottom: 84px;
+        padding: 0 0 70px 8px;
+        max-width: 468px;
 
         &__title {
           color: $color-light-xl;
-          font-size: 44px;
-          line-height: 130%;
-          font-family: Georgia;
+          @include h2;
           max-width: 310px;
-          font-weight: 400;
         }
 
         &__subtitle {
           margin-top: 42px;
+          font-size: 15px;
           font-family: Arial;
           color: $color-dark-s;
           line-height: 160%;
@@ -113,10 +216,108 @@ $color-light-s: #FAFAFA;
           margin-top: 42px;
           padding: 15px 45px;
           border-radius: 100px;
-          background-color: $color-primary;
+          background-color: $color-primary-color;
+          font-size: 17px;
+          line-height: 130%;
+          font-family: Georgia;
+          letter-spacing: 1px;
         }
       }
     }
+
+    &__image-wrapper {
+      display: flex;
+    }
+
+    &__image {
+      width: 100%;
+      max-width: 690px;
+      max-height: 728px;
+    }
+  }
+
+  .about {
+    display: flex;
+
+    &__wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 8px 17.5px 10px;
+      margin: 80px 40px 100px;
+    }
+
+    & .wrapper {
+      display: flex;
+      justify-content: center;
+      flex: none;
+    }
+
+    &__image-wrapper {
+      display: flex;
+
+      .about__image {
+        width: 100%;
+      }
+    }
+
+    &__content {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      max-width: 430px;
+    }
+
+    &__title {
+      @include h3;
+      color: $color-dark-l;
+
+      span {
+        display: block;
+        letter-spacing: 2px;
+      }
+    }
+
+    &__description {
+      margin-top: 25px;
+
+      p {
+        @include paragraph-l;
+        color: $color-dark-xl;
+      }
+    }
+
+    &__description p:nth-child(2) {
+      margin-top: 25px;
+    }
+  }
+
+  .pets {
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+&__title {
+  @include h3;
+  color: $color-dark-l;
+  max-width: 400px;
+  text-align: center;
+
+  span {
+    display: block;
+    letter-spacing: 2px;
+  }
+}
+      .slider__button {
+        @include slider__button;
+      }
+
+      .slider__button_reverted {
+        @include slider__button;
+        transform: rotate(180deg);
+      }
   }
 }
 
