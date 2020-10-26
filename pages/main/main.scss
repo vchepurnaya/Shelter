@@ -368,5 +368,33 @@
       }
     }
   }
+
+  .footer {
+    &__content {
+      display: flex;
+    }
+
+    &__contacts  {
+      display: flex;
+      flex-direction: column;
+
+      &-title {
+        span {
+          @include h3;
+display: block;
+        }
+      }
+
+      &-link {
+        a {
+@include h4;
+        }
+      }
+    }
+
+    &__image-wrapper {
+max-width: 300px;
+    }
+  }
 }
 

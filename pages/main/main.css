@@ -447,5 +447,33 @@
   color: #B2B2B2;
   margin-top: 20px;
 }
+.main .footer__content {
+  display: flex;
+}
+.main .footer__contacts {
+  display: flex;
+  flex-direction: column;
+}
+.main .footer__contacts-title span {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 2.1px;
+  display: block;
+}
+.main .footer__contacts-link a {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #545454;
+  line-height: 115%;
+  letter-spacing: 1.2px;
+}
+.main .footer__image-wrapper {
+  max-width: 300px;
+}
 
 /*# sourceMappingURL=main.css.map */
