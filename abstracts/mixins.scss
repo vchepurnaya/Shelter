@@ -1,0 +1,135 @@
+@import "../abstracts/variables";
+
+@mixin h2 {
+  font: {
+    family: Georgia;
+    size: 44px;
+    weight: 400;
+  }
+  line-height: 130%;
+}
+
+@mixin h3 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 35px;
+  }
+  line-height: 130%;
+  letter-spacing: 2.1px;
+}
+
+@mixin h4 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 20px;
+  }
+  color: $color-dark-l;
+  line-height: 115%;
+  letter-spacing: 1.2px;
+}
+
+@mixin h5 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 15px;
+  }
+  line-height: 110%;
+  letter-spacing: 0.06rem;
+}
+
+@mixin paragraph-l {
+  font: {
+    family: Arial;
+    style: normal;
+    weight: normal;
+    size: 15px;
+  }
+  line-height: 160%;
+}
+
+@mixin paragraph-s {
+  font: {
+    family: Arial;
+    style: italic;
+    weight: normal;
+    size: 12px;
+  }
+  line-height: 150%;
+}
+
+@mixin logo_title {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 32px;
+  }
+  line-height: 110%;
+  letter-spacing: 2px;
+}
+
+@mixin logo_subtitle {
+  font: {
+    family: Arial;
+    style: normal;
+    weight: normal;
+    size: 13px;
+  }
+  letter-spacing: 1.3px;
+  line-height: 15px;
+}
+
+@mixin slider__button {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border: 3px solid $color-primary-color;
+  border-radius: 100%;
+  transition: ease-out 0.2s;
+
+  &::before {
+    content: url('../../assets/icons/arrow.svg');
+    position: absolute;
+    width: 14px;
+    height: 6px;
+    bottom: calc(50% + 3px);
+    left: calc(50% - 7px);
+  }
+  &:hover {
+    background-color: $color-primary-color;
+  }
+}
+
+@mixin button() {
+  padding: 15px 45px;
+  border-radius: 100px;
+  font-size: 17px;
+  line-height: 130%;
+  font-family: Georgia;
+  letter-spacing: 1px;
+  color: $color-dark-3xl;
+  transition: ease-out 0.2s;
+}
+
+@mixin button_primary {
+  background-color: $color-primary-color;
+  @include button;
+  &:hover {
+    background-color: $color-primary-light;
+  }
+}
+
+@mixin button_secondary {
+  &:hover {
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+  }
+  border: 2px solid $color-primary-color;
+  @include button;
+}

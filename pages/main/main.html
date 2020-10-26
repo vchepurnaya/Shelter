@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/static/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/static/site.webmanifest">
+    <link rel="mask-icon" href="../../assets/static/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="main.css">
-    <title>Title</title>
+    <title>Cozy House</title>
 </head>
 <body>
 <header class="header">
@@ -45,8 +52,10 @@
         </nav>
     </div>
 </header>
+
 <main class="main">
-    <div class="hero">
+
+    <section class="hero">
         <div class="wrapper">
             <div class="hero__content">
                 <div class="content-section">
@@ -73,8 +82,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="about">
+    </section>
+
+    <section class="about">
         <div class="wrapper">
             <div class="about__wrapper">
                 <div class="about__image-wrapper">
@@ -110,8 +120,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="pets">
+    </section>
+
+    <section class="pets">
         <div class="wrapper">
             <div class="pets__wrapper">
                 <h3 class="pets__title">
@@ -123,26 +134,202 @@
                     </span>
                 </h3>
                 <div class="pets__content">
-                    <button class="slider__button">
-                        <img class=""
-                             src="../../assets/icons/Arrow.svg"
-                             alt="left arrow">
-                    </button>
-                    <div class="pets__card">
-
+                    <button class="slider__button"></button>
+                    <div class="pets__cards">
+                        <div class="pets__card">
+                            <img
+                                    class="pets__card-image"
+                                    src="../../assets/images/pets/pets-katrine.png"
+                                    alt="pets Katrine"
+                            >
+                            <div class="pets__card-content">
+                                <h4 class="pets__card-title">
+                                    Katrine
+                                </h4>
+                                <button class="pets__card-button">
+                                    Learn more
+                                </button>
+                            </div>
+                        </div>
+                        <div class="pets__card">
+                            <img
+                                    class="pets__card-image"
+                                    src="../../assets/images/pets/pets-jennifer.png"
+                                    alt="pets Jeniffer"
+                            >
+                            <div class="pets__card-content">
+                                <h4 class="pets__card-title">
+                                    Jeniffer
+                                </h4>
+                                <button class="pets__card-button">
+                                    Learn more
+                                </button>
+                            </div>
+                        </div>
+                        <div class="pets__card">
+                            <img
+                                    class="pets__card-image"
+                                    src="../../assets/images/pets/pets-woody.png"
+                                    alt="pets Woody"
+                            >
+                            <div class="pets__card-content">
+                                <h4 class="pets__card-title">
+                                    Woody
+                                </h4>
+                                <button class="pets__card-button">
+                                    Learn more
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <button class="slider__button_reverted">
-                        <img class=""
-                             src="../../assets/icons/Arrow.svg"
-                             alt="right arrow">
-                    </button>
+                    <button class="slider__button_reverted"></button>
                 </div>
                 <button class="pets__button">
                     Get to know the rest
                 </button>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="help">
+        <div class="wrapper">
+            <div class="help__content">
+                <h3 class="help__title">
+                    How you can help
+                    our shelter
+                </h3>
+                <ul class="help__list">
+                    <li class="help__list-item">
+                        <figure class="help__list-figure">
+                            <img
+                                    src="../../assets/icons/help/Vector.svg"
+                                    alt="food"
+                                    class="help__list-image"
+                            >
+                            <figcaption class="help__list-title">
+                                <h4 class="help__list-text">
+                                    Pet food
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="help__list-item">
+                        <figure class="help__list-figure">
+                            <img
+                                    src="../../assets/icons/help/transportation.svg"
+                                    alt="Transportation"
+                                    class="help__list-image"
+                            >
+                            <figcaption class="help__list-title">
+                                <h4 class="help__list-text">
+                                    Transportation
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="help__list-item">
+                        <figure class="help__list-figure">
+                            <img
+                                    src="../../assets/icons/help/toys.svg"
+                                    alt="Toys"
+                                    class="help__list-image"
+                            >
+                            <figcaption class="help__list-title">
+                                <h4 class="help__list-text">
+                                    Toys
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="help__list-item">
+                        <figure class="help__list-figure">
+                            <img
+                                    src="../../assets/icons/help/bowls-and-cups.svg"
+                                    alt="Bowls and cups"
+                                    class="help__list-image"
+                            >
+                            <figcaption class="help__list-title">
+                                <h4 class="help__list-text">
+                                    Bowls and cups
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="help__list-item">
+                        <figure class="help__list-figure">
+                            <img
+                                    src="../../assets/icons/help/shampoos.svg"
+                                    alt="Shampoos"
+                                    class="help__list-image"
+                            >
+                            <figcaption class="help__list-title">
+                                <h4 class="help__list-text">
+                                    Shampoos
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="help__list-item">
+                        <figure class="help__list-figure">
+                            <img
+                                    src="../../assets/icons/help/vitamins.svg"
+                                    alt="Vitamins"
+                                    class="help__list-image"
+                            >
+                            <figcaption class="help__list-title">
+                                <h4 class="help__list-text">
+                                    Vitamins
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="help__list-item">
+                        <figure class="help__list-figure">
+                            <img
+                                    src="../../assets/icons/help/medicines.svg"
+                                    alt="Medicines"
+                                    class="help__list-image"
+                            >
+                            <figcaption class="help__list-title">
+                                <h4 class="help__list-text">
+                                    Medicines
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="help__list-item">
+                        <figure class="help__list-figure">
+                            <img
+                                    src="../../assets/icons/help/collars-or-leashes.svg"
+                                    alt="Collars / leashes"
+                                    class="help__list-image"
+                            >
+                            <figcaption class="help__list-title">
+                                <h4 class="help__list-text">
+                                    Collars / leashes
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="help__list-item">
+                        <figure class="help__list-figure">
+                            <img
+                                    src="../../assets/icons/help/sleeping-area.svg"
+                                    alt="Sleeping areas"
+                                    class="help__list-image"
+                            >
+                            <figcaption class="help__list-title">
+                                <h4 class="help__list-text">
+                                    Sleeping areas
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
 </main>
 </body>
 </html>
