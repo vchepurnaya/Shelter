@@ -310,12 +310,13 @@
   letter-spacing: 1px;
   color: #292929;
   transition: ease-out 0.2s;
+  margin-left: 18px;
 }
 .main .pets__button:hover {
   background-color: #FDDCC4;
 }
 .main .help {
-  margin: 80px 0 100px;
+  margin: 76px 0 100px;
 }
 .main .help__content {
   display: flex;
@@ -330,6 +331,7 @@
   letter-spacing: 2.1px;
   text-align: center;
   color: #545454;
+  margin-left: 18px;
 }
 .main .help__title span {
   display: block;
@@ -341,7 +343,8 @@
   align-items: center;
   column-gap: 120px;
   row-gap: 55px;
-  margin-top: 60px;
+  margin-top: 59px;
+  padding-left: 18px;
 }
 .main .help__list-item {
   display: flex;
@@ -447,12 +450,19 @@
   color: #B2B2B2;
   margin-top: 20px;
 }
+.main .footer {
+  padding: 40px 0 0 11px;
+  background: url(../../assets/images/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+}
 .main .footer__content {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 .main .footer__contacts {
   display: flex;
   flex-direction: column;
+  margin-top: 16px;
 }
 .main .footer__contacts-title span {
   font-family: Georgia;
@@ -462,8 +472,16 @@
   line-height: 130%;
   letter-spacing: 2.1px;
   display: block;
+  color: #FFFFFF;
 }
-.main .footer__contacts-link a {
+.main .footer__contacts-mail, .main .footer__contacts-phone, .main .footer__contacts-location {
+  display: flex;
+  align-items: center;
+}
+.main .footer__contacts-mail img, .main .footer__contacts-phone img, .main .footer__contacts-location img {
+  margin-right: 20px;
+}
+.main .footer__contacts-mail a, .main .footer__contacts-phone a, .main .footer__contacts-location a {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
@@ -471,9 +489,16 @@
   color: #545454;
   line-height: 115%;
   letter-spacing: 1.2px;
+  color: #F1CDB3;
 }
-.main .footer__image-wrapper {
-  max-width: 300px;
+.main .footer__contacts-mail a span, .main .footer__contacts-phone a span, .main .footer__contacts-location a span {
+  display: block;
+}
+.main .footer__contacts-mail, .main .footer__contacts-phone {
+  margin-top: 43px;
+}
+.main .footer__contacts-location {
+  margin-top: 34px;
 }
 
 /*# sourceMappingURL=main.css.map */
