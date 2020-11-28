@@ -1,49 +1,50 @@
-let pets = [];
-let fullPetsList = []; //48 elements
 const petsContainer = document.querySelector('.pets__cards');
 const popUpContainer = document.querySelector('.popup__content');
 const popUp = document.querySelector('.popup');
 const leftArrow = document.querySelector('.slider__button');
 const rightArrow = document.querySelector('.slider__button_reverted');
+
+let pets = [];
+let fullPetsList = []; //48 elements
 let pageCounter = 0;
 
 
-fetch('./pets.json').then(res => res.json()).then(list => {
-    pets = list;
+const request = new XMLHttpRequest();
+request.open('GET', './pets.json');
+request.onload =  () => {
+    pets = JSON.parse(request.response);
 
-    //IIFE
-    fullPetsList = (() => {
-        let tempArr = [];
-        for (let i = 0; i < 6; i++) {
-            const newPets = pets;
+        //IIFE
+        fullPetsList = (() => {
+            let tempArr = [];
+            for (let i = 0; i < 6; i++) {
+                const newPets = pets;
 
-            for (let j = pets.length; j > 0; j--) {
-                let randInd = Math.floor(Math.random() * j);
-                const randElem = newPets.splice(randInd, 1)[0];
-                newPets.push(randElem);
+                for (let j = pets.length; j > 0; j--) {
+                    let randInd = Math.floor(Math.random() * j);
+                    const randElem = newPets.splice(randInd, 1)[0];
+                    newPets.push(randElem);
+                }
+
+                tempArr = [...tempArr, ...newPets]
             }
+            return tempArr;
+        })();
 
-            tempArr = [...tempArr, ...newPets]
-        }
-        return tempArr;
-    })();
+        fullPetsList = sort863(fullPetsList);
 
-    fullPetsList = sort863(fullPetsList);
+        createPets(fullPetsList);
 
-    createPets(fullPetsList);
+               /* const btnClosePopUp = document.querySelector('.popup__close');
 
-    const btnLearnMore = document.querySelectorAll('#btn');
+                btnClosePopUp.addEventListener('click', (e) => {
+                    popUp.style.display = `none`;
+                })*/
 
-    Array.from(btnLearnMore).forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            createModalPage(fullPetsList);
-            popUp.style.display = `block`;
-            document.body.style.overflow = 'hidden';
-        })
-    })
+}
 
+request.send();
 
-})
 
 const createPets = (petsList) => {
     petsContainer.innerHTML += createElement(petsList);
@@ -62,7 +63,7 @@ createElement = (petsList) => {
                                 <h4 class="pets__card-title">
                                     ${pet.name}
                                 </h4>
-                                <button class="pets__card-button" id="btn">
+                                <button class="pets__card-button" onclick="createModalPage(${pet.id});">
                                     Learn more
                                 </button>
                             </div>
@@ -72,14 +73,15 @@ createElement = (petsList) => {
     return str;
 }
 
-const createModalPage = (petsList) => {
-    popUpContainer.innerHTML += createPopUp(petsList);
+const createModalPage = (petId) => {
+    let pet = fullPetsList.filter(pet => pet.id === petId)[0];
+    popUpContainer.innerHTML += createPopUp(pet);
+    popUp.style.display = `block`;
+    document.body.style.overflow = 'hidden';
 }
 
-createPopUp = (petsList) => {
-    let str = '';
-    petsList.forEach(pet => {
-        str = `
+createPopUp = (pet) => {
+   return `
         <div class="popup__img">
             <img  src="${pet.img}" alt="${pet.name}">
         </div>
@@ -95,11 +97,7 @@ createPopUp = (petsList) => {
                 <li><strong>Diseases:</strong>${pet.diseases}</li>
                 <li><strong>Parasites:</strong>${pet.parasites}</li>
             </ul>
-        </div>
-        `
-    })
-
-    return str;
+        </div>`
 }
 
 const sort863 = (list) => {
@@ -145,13 +143,3 @@ rightArrow.addEventListener('click', (e) => {
     petsContainer.style.top = `${-438.667 * pageCounter}px`;
     petsContainer.style.transition = `0.5s ease-in-out`;
 });
-
-
-/*
-const btnClosePopUp = document.querySelector('.popup__close');
-
-btnClosePopUp.addEventListener('click', (e) => {
-    popUp.style.display = `none`;
-    console.log(e.currentTarget)
-})
-*/
