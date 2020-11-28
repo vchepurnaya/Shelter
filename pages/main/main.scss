@@ -1,11 +1,14 @@
 @import "../../abstracts/mixins";
 @import "../../abstracts/variables";
 
+:root {
+  font-size: 10px;
+}
 
 .wrapper {
   display: flex;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 120rem;
   justify-content: space-between;
   flex: 1;
 }
@@ -13,30 +16,30 @@
 .header {
   width: 100vw;
   max-width: 100%;
-  top: 60px;
+  top: 6rem;
   position: absolute;
 
   .logo {
     display: flex;
     flex-direction: column;
-    margin-left: 8px;
+    margin-left: 0.8rem;
 
     &__title {
       color: $color-primary-color;
-      @include logo_title;
+      @include logo_title();
     }
 
     &__subtitle {
       color: $color-light-xl;
-      @include logo_subtitle;
-      margin-top: 10px;
+      @include logo_subtitle();
+      margin-top: 1rem;
       text-align: center;
     }
   }
 
   .menu {
     display: flex;
-    width: 434px;
+    width: 43.4rem;
 
     .list {
       display: flex;
@@ -50,10 +53,10 @@
 
       &__link {
         color: $color-light-xl;
-        @include paragraph-l;
+        @include paragraph-l();
 
         &_active {
-          border-bottom: solid 3px #F1CDB3;
+          border-bottom: solid 0.3rem #F1CDB3;
           color: $color-light-s;
         }
 
@@ -71,7 +74,7 @@
 
   .hero {
     display: flex;
-    padding-top: 180px;
+    padding-top: 18rem;
     background: $start-screen-gradient-background;
 
     &__content {
@@ -83,27 +86,25 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 0 0 70px 8px;
-        max-width: 468px;
+        padding: 0 0 7rem 0.8rem;
+        max-width: 46.8rem;
 
         &__title {
           color: $color-light-xl;
-          @include h2;
-          max-width: 310px;
+          @include h2();
+          max-width: 31rem;
         }
 
         &__subtitle {
-          margin-top: 42px;
-          font-size: 15px;
-          font-family: Arial;
+          margin-top: 4.2rem;
+          @include paragraph-l();
           color: $color-dark-s;
-          line-height: 160%;
         }
 
         &__button {
-          width: 207px;
-          margin-top: 42px;
-          @include button_primary;
+          width: 20.7rem;
+          margin-top: 4.2rem;
+          @include button_primary();
         }
       }
     }
@@ -114,8 +115,8 @@
 
     &__image {
       width: 100%;
-      max-width: 690px;
-      max-height: 728px;
+      max-width: 69rem;
+      max-height: 72.8rem;
     }
   }
 
@@ -126,8 +127,8 @@
       display: flex;
       width: 100%;
       justify-content: space-around;
-      padding: 80px 17.5px 100px;
-      margin: 10px 89px 0 106px;
+      padding: 8rem 1.75rem 10rem;
+      margin: 1rem 8.9rem 0 10.6rem;
     }
 
     & .wrapper {
@@ -146,28 +147,28 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-      max-width: 430px;
+      max-width: 43rem;
     }
 
     &__title {
-      @include h3;
+      @include h3();
       color: $color-dark-l;
 
       span {
         display: block;
-        letter-spacing: 2px;
+        letter-spacing: 0.2rem;
       }
     }
 
     &__description {
-      margin-top: 25px;
+      margin-top: 2.5rem;
 
       p {
         & + p {
-          margin-top: 25px;
+          margin-top: 2.5rem;
         }
 
-        @include paragraph-l;
+        @include paragraph-l();
         color: $color-dark-xl;
       }
     }
@@ -175,7 +176,11 @@
 
   .pets {
     background-color: $color-light-l;
-    padding: 80px 0 100px;
+    padding: 8rem 0 10rem;
+
+    .wrapper {
+      max-width: 128rem;
+    }
 
     &__wrapper {
       display: flex;
@@ -185,11 +190,11 @@
     }
 
     &__title {
-      @include h3;
+      @include h3();
       color: $color-dark-l;
-      max-width: 400px;
+      max-width: 40rem;
       text-align: center;
-      margin-left: 18px;
+      margin-left: 1.8rem;
 
       span {
         display: block;
@@ -198,25 +203,32 @@
 
     &__content {
       display: flex;
-      align-items: center;
+      position: relative;
+      height: 438.667px;
+      overflow: hidden;
+      padding-left: 16px;
+      margin: 58px 0;
+      width: 100%;
     }
 
     &__cards {
       display: flex;
-      padding: 60px 8px;
+      flex-wrap: wrap;
+      position: relative;
+      justify-content: center;
     }
 
     &__card {
       display: flex;
       flex-direction: column;
-      border-radius: 9px;
-      margin: 0 45px;
+      border-radius: 0.9rem;
+      margin: 0 4.5rem;
       background-color: $color-light-s;
       transition: ease-out 0.2s;
 
       &:hover {
         background-color: $color-light-xl;
-        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+        box-shadow: 0 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
       }
 
       &-image {
@@ -226,42 +238,46 @@
       &-content {
         display: flex;
         flex-direction: column;
-        padding-bottom: 30px;
+        padding-bottom: 3rem;
         align-items: center;
       }
 
       &-title {
-        @include h4;
+        @include h4();
         text-align: center;
-        margin: 30px 0;
+        margin: 3rem 0;
       }
 
       &-button {
-        @include button_secondary;
+        @include button_secondary();
       }
     }
 
     .slider__button {
-      @include slider__button;
+      @include slider__button();
+      top: calc(50% - 52px / 2);
+      left: 40px;
     }
 
     .slider__button_reverted {
-      @include slider__button;
+      @include slider__button();
+      top: calc(50% - 52px / 2);
+      right: 24px;
 
       &::before {
-        top: calc(50% + 3px);
+        top: calc(50% + 0.3rem);
         transform: rotate(180deg);
       }
     }
 
     &__button {
-      @include button_primary;
-      margin-left: 18px;
+      @include button_primary();
+      margin-left: 1.8rem;
     }
   }
 
   .help {
-    margin: 76px 0 100px;
+    margin: 8rem 0 10rem;
 
     &__content {
       display: flex;
@@ -269,10 +285,10 @@
     }
 
     &__title {
-      @include h3;
+      @include h3();
       text-align: center;
       color: $color-dark-l;
-      margin-left: 18px;
+      margin-left: 1.8rem;
 
       span {
         display: block;
@@ -284,10 +300,10 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      column-gap: 120px;
-      row-gap: 55px;
-      margin-top: 59px;
-      padding-left: 18px;
+      column-gap: 12rem;
+      row-gap: 5.5rem;
+      margin-top: 5.9rem;
+      padding-left: 1.8rem;
 
       &-item {
         display: flex;
@@ -295,8 +311,8 @@
       }
 
       &-text {
-        @include h4;
-        margin-top: 30px;
+        @include h4();
+        margin-top: 3rem;
         color: $color-dark-l;
         text-align: center;
       }
@@ -305,7 +321,7 @@
 
   .donation {
     display: flex;
-    padding: 77px 0 100px;
+    padding: 8.2rem 0 10rem;
     background-color: $color-light-l;
 
     .wrapper {
@@ -315,7 +331,7 @@
     &__content {
       display: flex;
       justify-content: center;
-      margin-left: 15px;
+      margin-left: 1.5rem;
     }
 
     &__image-wrapper {
@@ -325,14 +341,14 @@
     }
 
     &__information {
-      max-width: 380px;
-      margin-left: 30px;
+      max-width: 38rem;
+      margin-left: 3rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
 
       &-title {
-        @include h3;
+        @include h3();
         color: $color-dark-l;
 
         span {
@@ -341,88 +357,449 @@
       }
 
       &-subtitle {
-        margin-top: 20px;
-        @include h5;
+        margin-top: 2rem;
+        @include h5();
         color: $color-dark-l;
       }
 
       &-card {
-        @include button_primary;
-        border-radius: 10px;
-        padding: 10px 15px;
+        @include button_primary();
+        border-radius: 1rem;
+        padding: 1rem 1.5rem;
         display: flex;
-        margin-top: 20px;
-        width: 350px;
-        height: 43px;
+        margin-top: 2rem;
+        width: 35rem;
+        height: 4.3rem;
 
         img {
-          margin-right: 15px;
+          margin-right: 1.5rem;
         }
 
         a {
-          @include h4;
+          @include h4();
         }
       }
 
       &-text {
-        @include paragraph-s;
+        @include paragraph-s();
         color: $color-dark-m;
-        margin-top: 20px;
+        margin-top: 2rem;
       }
     }
   }
+}
 
-  .footer {
-    padding: 40px 0 0 11px;
-    background: $footer-gradient-background;
+.footer {
+  padding: 4rem 0 0 1rem;
+  background: $footer-gradient-background;
 
-    &__content {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
+  &__content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.6rem;
+
+    &-title {
+      span {
+        @include h3();
+        display: block;
+        color: $color-light-xl;
+      }
     }
 
-    &__contacts {
+    &-mail,
+    &-phone,
+    &-location {
       display: flex;
-      flex-direction: column;
-      margin-top: 16px;
+      align-items: center;
 
-      &-title {
+      img {
+        margin-right: 2rem;
+      }
+
+      a {
+        @include h4();
+        color: $color-primary-color;
+
         span {
-          @include h3;
           display: block;
-          color: $color-light-xl;
+        }
+      }
+    }
+
+    &-mail,
+    &-phone {
+      margin-top: 4.3rem;
+    }
+
+    &-location {
+      margin-top: 3.4rem;
+    }
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 768px) {
+
+  .wrapper {
+    max-width: 70.8rem;
+  }
+
+  .header {
+    top: 3rem;
+
+    .logo {
+      margin-left: 0.2rem;
+    }
+
+    .menu {
+      width: 44.3rem;
+    }
+  }
+
+
+  .main {
+    .hero {
+      padding-top: 15rem;
+
+      &__content {
+        flex-direction: column;
+        align-items: center;
+
+        .content-section {
+          max-width: 47.6rem;
+
+          .button__wrapper {
+            display: flex;
+            justify-content: center;
+          }
         }
       }
 
-      &-mail,
-      &-phone,
-      &-location {
+      &__image-wrapper {
+        padding-top: 30px;
+        padding-left: 138px;
+      }
+
+      &__image {
+        max-width: 56.9rem;
+        max-height: 59.3rem;
+      }
+    }
+
+    .about {
+      &__wrapper {
+        flex-direction: column-reverse;
+        padding: 7.1rem 3.35rem 10rem;
+      }
+
+      &__image-wrapper {
+        margin-top: 79px;
+        margin-left: 64px;
+
+        .about__image {
+          width: 300px;
+          height: 408px;
+        }
+      }
+    }
+
+    .pets {
+      background-color: $color-light-l;
+      padding: 8rem 0 10rem;
+
+      &__wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+      }
+
+      &__title {
+        @include h3();
+        color: $color-dark-l;
+        max-width: 40rem;
+        text-align: center;
+        margin-left: 1.8rem;
+
+        span {
+          display: block;
+        }
+      }
+
+      &__content {
         display: flex;
         align-items: center;
+      }
 
-        img {
-          margin-right: 20px;
+      &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 8rem 0; //
+        margin-left: 16px;
+      }
+
+      &__card {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        border-radius: 0.9rem;
+        margin: 0 8rem;
+        background-color: $color-light-s;
+        transition: ease-out 0.2s;
+
+        &:hover {
+          background-color: $color-light-xl;
+          box-shadow: 0 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
         }
 
-        a {
-          @include h4;
-          color: $color-primary-color;
+        &-image {
+          width: 100%;
+        }
+
+        &-content {
+          display: flex;
+          flex-direction: column;
+          padding-bottom: 3rem;
+          align-items: center;
+        }
+
+        &-title {
+          @include h4();
+          text-align: center;
+          margin: 3rem 0;
+        }
+
+        &-button {
+          @include button_secondary();
+        }
+      }
+
+      .slider__button {
+        @include slider__button();
+      }
+
+      .slider__button_reverted {
+        @include slider__button();
+
+        &::before {
+          top: calc(50% + 0.3rem);
+          transform: rotate(180deg);
+        }
+      }
+
+      &__button {
+        @include button_primary();
+        margin-left: 1.8rem;
+      }
+    }
+
+    .help {
+      margin: 7.6rem 0 10rem;
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &__title {
+        @include h3();
+        text-align: center;
+        color: $color-dark-l;
+        margin-left: 1.8rem;
+
+        span {
+          display: block;
+        }
+      }
+
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        column-gap: 12rem;
+        row-gap: 5.5rem;
+        margin-top: 5.9rem;
+        padding-left: 1.8rem;
+
+        &-item {
+          display: flex;
+          flex-direction: column;
+        }
+
+        &-text {
+          @include h4();
+          margin-top: 3rem;
+          color: $color-dark-l;
+          text-align: center;
+        }
+      }
+    }
+
+    .donation {
+      display: flex;
+      padding: 8.2rem 0 10rem;
+      background-color: $color-light-l;
+
+      .wrapper {
+        flex: none;
+      }
+
+      &__content {
+        display: flex;
+        justify-content: center;
+        margin-left: 1.5rem;
+      }
+
+      &__image-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &__information {
+        max-width: 38rem;
+        margin-left: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &-title {
+          @include h3();
+          color: $color-dark-l;
 
           span {
             display: block;
           }
         }
-      }
 
-      &-mail,
-      &-phone {
-        margin-top: 43px;
-      }
+        &-subtitle {
+          margin-top: 2rem;
+          @include h5();
+          color: $color-dark-l;
+        }
 
-      &-location {
-        margin-top: 34px;
+        &-card {
+          @include button_primary();
+          border-radius: 1rem;
+          padding: 1rem 1.5rem;
+          display: flex;
+          margin-top: 2rem;
+          width: 35rem;
+          height: 4.3rem;
+
+          img {
+            margin-right: 1.5rem;
+          }
+
+          a {
+            @include h4();
+          }
+        }
+
+        &-text {
+          @include paragraph-s();
+          color: $color-dark-m;
+          margin-top: 2rem;
+        }
       }
+    }
+  }
+}
+
+
+.popup {
+  display: none;
+  width: 100%;
+  height: 2000px;
+  background: rgba(41, 41, 41, 0.6);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+
+  &__close {
+    @include pagination_button();
+    position: absolute;
+    right: -48px;
+    top: -39px;
+
+    &::before {
+      content: url("../../assets/icons/Vector.svg");
+      position: absolute;
+      top: 38%;
+      right: 36%;
+    }
+
+    &:hover {
+      background-color: $color-primary-color;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    margin: 40px auto 0px auto;
+    width: 900px;
+    height: 500px;
+    background-color: $color-light-s;
+    border-radius: 10px;
+    transition: .3s ease-in-out;
+  }
+
+  &__img {
+    width: 500px;
+    height: 500px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 50px;
+    padding-left: 30px;
+  }
+
+  &__title {
+    @include h3();
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    @include h4();
+    margin-bottom: 43px;
+  }
+
+  &__paragraph {
+    width: 350px;
+
+    h5 {
+      @include h5();
+    }
+  }
+
+  &__info {
+    @include h5();
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+
+    &:nth-of-type(1) {
+      margin-top: 40px;
+    }
+
+    li {
+      margin-top: 10px;
     }
   }
 }
