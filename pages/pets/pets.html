@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../main/reset.css">
     <link rel="stylesheet" href="pets.css">
     <link rel="stylesheet" href="../main/main.css">
+    <link rel="import" href="../main/main.html">
     <title>Cozy House</title>
 </head>
 <body>
@@ -41,7 +42,7 @@
                     </a>
                 </li>
                 <li class="list__item">
-                    <a class="list__link list__link_disabled" href="#">
+                    <a class="list__link list__link_disabled" href="#help">
                         Help the shelter
                     </a>
                 </li>
@@ -55,10 +56,10 @@
     </div>
 </header>
 
-<main class="main">
-    <div class="pets-wrapper">
-        <div class="main__wrapper">
-            <h3 class="main__title">
+<main class="pets">
+    <div class="pet-wrapper">
+        <div class="pets__wrapper">
+            <h3 class="pets__title">
                     <span>
                         Our friends who
                     </span>
@@ -66,144 +67,23 @@
                        are looking for a house
                     </span>
             </h3>
-            <div class="main__content">
-                <div class="main__cards">
-                    <div class="main__card">
-                        <img
-                                class="main__card-image"
-                                src="../../assets/images/pets/pets-katrine.png"
-                                alt="main Katrine"
-                        >
-                        <div class="main__card-content">
-                            <h4 class="main__card-title">
-                                Katrine
-                            </h4>
-                            <button class="main__card-button">
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-                    <div class="main__card">
-                        <img
-                                class="main__card-image"
-                                src="../../assets/images/pets/pets-jennifer.png"
-                                alt="main Jenniffer"
-                        >
-                        <div class="main__card-content">
-                            <h4 class="main__card-title">
-                                Jenniffer
-                            </h4>
-                            <button class="main__card-button">
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-                    <div class="main__card">
-                        <img
-                                class="main__card-image"
-                                src="../../assets/images/pets/pets-woody.png"
-                                alt="main Woody"
-                        >
-                        <div class="main__card-content">
-                            <h4 class="main__card-title">
-                                Woody
-                            </h4>
-                            <button class="main__card-button">
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-                    <div class="main__card">
-                        <img
-                                class="main__card-image"
-                                src="../../assets/images/pets/pets-sophia.png"
-                                alt="main Sophia"
-                        >
-                        <div class="main__card-content">
-                            <h4 class="main__card-title">
-                                Sophia
-                            </h4>
-                            <button class="main__card-button">
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-                    <div class="main__card">
-                        <img
-                                class="main__card-image"
-                                src="../../assets/images/pets/pets-timmy.png"
-                                alt="main Timmy"
-                        >
-                        <div class="main__card-content">
-                            <h4 class="main__card-title">
-                                Timmy
-                            </h4>
-                            <button class="main__card-button">
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-                    <div class="main__card">
-                        <img
-                                class="main__card-image"
-                                src="../../assets/images/pets/pets-charly.png"
-                                alt="main Charly"
-                        >
-                        <div class="main__card-content">
-                            <h4 class="main__card-title">
-                                Charly
-                            </h4>
-                            <button class="main__card-button">
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-                    <div class="main__card">
-                        <img
-                                class="main__card-image"
-                                src="../../assets/images/pets/pets-scarlet.png"
-                                alt="main Scarlett"
-                        >
-                        <div class="main__card-content">
-                            <h4 class="main__card-title">
-                                Scarlett
-                            </h4>
-                            <button class="main__card-button">
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-                    <div class="main__card">
-                        <img
-                                class="main__card-image"
-                                src="../../assets/images/pets/pets-freddie.png"
-                                alt="main Freddie"
-                        >
-                        <div class="main__card-content">
-                            <h4 class="main__card-title">
-                                Freddie
-                            </h4>
-                            <button class="main__card-button">
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="pets__content">
+                <div class="pets__cards"></div>
             </div>
-            <div class="main__pagination">
-                <button class="main__pagination-button main__pagination-button_disabled" disabled>
+            <div class="pets__pagination">
+                <button class="pets__pagination-button pets__pagination-button_disabled" disabled>
                     &#60;&#60;
                 </button>
-                <button class="main__pagination-button main__pagination-button_disabled" disabled>
+                <button class="pets__pagination-button pets__pagination-button_disabled" disabled>
                     &#60;
                 </button>
-                <button class="main__pagination-button main__pagination-button_active">
+                <button class="pets__pagination-button pets__pagination-button_active">
                     1
                 </button>
-                <button class="main__pagination-button">
+                <button class="pets__pagination-button">
                     &#62;
                 </button>
-                <button class="main__pagination-button">
+                <button class="pets__pagination-button">
                     &#62;&#62;
                 </button>
             </div>
@@ -285,5 +165,14 @@
     </div>
 </footer>
 
+<div class="popup">
+    <div class="popup__content">
+        <button class="popup__close"></button>
+
+    </div>
+</div>
+
+<script src="../main/main.js" type="module"></script>
+<script src="../pets/pets.js" type="module"></script>
 </body>
 </html>

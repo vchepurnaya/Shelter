@@ -9,41 +9,29 @@ let fullPetsList = []; //48 elements
 let pageCounter = 0;
 
 
-const request = new XMLHttpRequest();
-request.open('GET', './pets.json');
-request.onload =  () => {
-    pets = JSON.parse(request.response);
+fetch('./pets.json').then(res => res.json()).then(list => {
+    pets = list;
 
-        //IIFE
-        fullPetsList = (() => {
-            let tempArr = [];
-            for (let i = 0; i < 6; i++) {
-                const newPets = pets;
+    //IIFE
+    fullPetsList = (() => {
+        let tempArr = [];
+        for (let i = 0; i < 6; i++) {
+            const newPets = pets;
 
-                for (let j = pets.length; j > 0; j--) {
-                    let randInd = Math.floor(Math.random() * j);
-                    const randElem = newPets.splice(randInd, 1)[0];
-                    newPets.push(randElem);
-                }
-
-                tempArr = [...tempArr, ...newPets]
+            for (let j = pets.length; j > 0; j--) {
+                let randInd = Math.floor(Math.random() * j);
+                const randElem = newPets.splice(randInd, 1)[0];
+                newPets.push(randElem);
             }
-            return tempArr;
-        })();
 
-        fullPetsList = sort863(fullPetsList);
+            tempArr = [...tempArr, ...newPets]
+        }
+        return tempArr;
+    })();
 
-        createPets(fullPetsList);
-
-               /* const btnClosePopUp = document.querySelector('.popup__close');
-
-                btnClosePopUp.addEventListener('click', (e) => {
-                    popUp.style.display = `none`;
-                })*/
-
-}
-
-request.send();
+    fullPetsList = sort863(fullPetsList);
+    createPets(fullPetsList);
+})
 
 
 const createPets = (petsList) => {
@@ -63,13 +51,12 @@ createElement = (petsList) => {
                                 <h4 class="pets__card-title">
                                     ${pet.name}
                                 </h4>
-                                <button class="pets__card-button" onclick="createModalPage(${pet.id});">
+                                <button class="pets__card-button" onclick="createModalPage(${pet.id})">
                                     Learn more
                                 </button>
                             </div>
                         </div>`
     })
-
     return str;
 }
 
@@ -78,6 +65,8 @@ const createModalPage = (petId) => {
     popUpContainer.innerHTML += createPopUp(pet);
     popUp.style.display = `block`;
     document.body.style.overflow = 'hidden';
+    const btnClosePopUp = document.querySelector('.popup__close');
+    btnClosePopUp.addEventListener('click', resetPopUp);
 }
 
 createPopUp = (pet) => {
@@ -127,6 +116,11 @@ const sort863 = (list) => {
     return list;
 }
 
+resetPopUp = () => {
+    popUpContainer.innerHTML = '<button class="popup__close"></button>';
+    popUp.style.display = `none`;
+    document.body.style.overflow = 'auto';
+}
 
 leftArrow.addEventListener('click', (e) => {
     if (pageCounter > 0) {
@@ -143,3 +137,16 @@ rightArrow.addEventListener('click', (e) => {
     petsContainer.style.top = `${-438.667 * pageCounter}px`;
     petsContainer.style.transition = `0.5s ease-in-out`;
 });
+
+
+/*
+const pagination = document.querySelector('.pets__pagination');
+
+pagination.addEventListener('click', (e) => {
+    if (e.target.tagName.toLowerCase() === 'button') {
+        fullPetsList.shift()
+        console.log(fullPetsList)
+
+    }
+    return fullPetsList;
+})*/

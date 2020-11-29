@@ -1,4 +1,4 @@
-.pets-wrapper {
+.pet-wrapper {
   display: flex;
   margin: 0 auto;
   max-width: 128rem;
@@ -70,17 +70,17 @@
   color: #545454;
 }
 
-.main {
+.pets {
   background-color: #F6F6F6;
   padding: 8rem 0 10rem;
 }
-.main__wrapper {
+.pets__wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
 }
-.main__title {
+.pets__title {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
@@ -92,19 +92,21 @@
   text-align: center;
   margin-left: 1.8rem;
 }
-.main__title span {
+.pets__title span {
   display: block;
 }
-.main__content {
+.pets__content {
   display: flex;
   align-items: center;
+  height: 930px;
+  overflow: hidden;
 }
-.main__cards {
+.pets__cards {
   display: flex;
   flex-wrap: wrap;
   padding: 6rem 0.8rem;
 }
-.main__card {
+.pets__card {
   display: flex;
   flex-direction: column;
   border-radius: 0.9rem;
@@ -112,20 +114,20 @@
   background-color: #FAFAFA;
   transition: ease-out 0.2s;
 }
-.main__card:hover {
+.pets__card:hover {
   background-color: #FFFFFF;
   box-shadow: 0 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
 }
-.main__card-image {
+.pets__card-image {
   width: 100%;
 }
-.main__card-content {
+.pets__card-content {
   display: flex;
   flex-direction: column;
   padding-bottom: 3rem;
   align-items: center;
 }
-.main__card-title {
+.pets__card-title {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
@@ -136,7 +138,7 @@
   text-align: center;
   margin: 3rem 0;
 }
-.main__card-button {
+.pets__card-button {
   border: 0.2rem solid #F1CDB3;
   padding: 1.5rem 4.5rem;
   border-radius: 10rem;
@@ -147,11 +149,11 @@
   color: #292929;
   transition: ease-out 0.2s;
 }
-.main__card-button:hover {
+.pets__card-button:hover {
   background-color: #FDDCC4;
   border-color: #FDDCC4;
 }
-.main__pagination-button {
+.pets__pagination-button {
   position: relative;
   margin: 0 1rem;
   font-family: Georgia;
@@ -161,20 +163,19 @@
   color: #545454;
   line-height: 115%;
   letter-spacing: 0.12rem;
-  position: relative;
   width: 5.2rem;
   height: 5.2rem;
   border: 0.3rem solid #F1CDB3;
   border-radius: 100%;
   transition: ease-out 0.2s;
 }
-.main__pagination-button_disabled {
+.pets__pagination-button_disabled {
   border: 0.3rem solid #CDCDCD;
 }
-.main__pagination-button_disabled:hover {
+.pets__pagination-button_disabled:hover {
   background-color: transparent;
 }
-.main__pagination-button_active {
+.pets__pagination-button_active {
   background-color: #F1CDB3;
 }
 
@@ -227,6 +228,105 @@
 }
 .footer__contacts-location {
   margin-top: 3.4rem;
+}
+
+.popup {
+  display: none;
+  width: 100%;
+  height: 2000px;
+  background: rgba(41, 41, 41, 0.6);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+}
+.popup__content {
+  position: relative;
+  display: flex;
+  margin: 40px auto 0px auto;
+  width: 900px;
+  height: 500px;
+  background-color: #FAFAFA;
+  border-radius: 10px;
+}
+.popup__close {
+  width: 5.2rem;
+  height: 5.2rem;
+  border: 0.3rem solid #F1CDB3;
+  border-radius: 100%;
+  transition: ease-out 0.2s;
+  position: absolute;
+  right: -48px;
+  top: -39px;
+}
+.popup__close::before {
+  content: url("../../assets/icons/Vector.svg");
+  position: absolute;
+  top: 38%;
+  right: 36%;
+}
+.popup__close:hover {
+  background-color: #F1CDB3;
+}
+.popup__img {
+  width: 500px;
+  height: 500px;
+}
+.popup__img img {
+  width: 100%;
+}
+.popup__description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 50px;
+  padding-left: 30px;
+}
+.popup__title {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  letter-spacing: 0.21rem;
+  margin-bottom: 10px;
+}
+.popup__subtitle {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  color: #545454;
+  line-height: 115%;
+  letter-spacing: 0.12rem;
+  margin-bottom: 43px;
+}
+.popup__paragraph {
+  width: 350px;
+}
+.popup__paragraph h5 {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 110%;
+  letter-spacing: 0.09rem;
+}
+.popup__info {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 110%;
+  letter-spacing: 0.09rem;
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+}
+.popup__info:nth-of-type(1) {
+  margin-top: 40px;
+}
+.popup__info li {
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=pets.css.map */
