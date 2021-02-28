@@ -1,0 +1,22 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+@mixin logo($title_color, $subtitle_color) {
+  .logo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.8rem;
+
+    &__title {
+      color: $title_color;
+      @include logo_title();
+    }
+
+    &__subtitle {
+      color: $subtitle_color;
+      @include logo_subtitle();
+      margin-top: 1rem;
+      text-align: center;
+    }
+  }
+}

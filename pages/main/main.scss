@@ -1,5 +1,9 @@
-@import "../../abstracts/mixins";
-@import "../../abstracts/variables";
+@import "../../assets/abstracts/mixins";
+@import "../../assets/abstracts/variables";
+@import "../../assets/styles/footer";
+@import "../../assets/styles/pop-up";
+@import "../../assets/styles/logo";
+@import "../../assets/styles/header-nav";
 
 :root {
   font-size: 10px;
@@ -8,10 +12,13 @@
 .wrapper {
   display: flex;
   margin: 0 auto;
+  position: relative;
   max-width: 120rem;
   justify-content: space-between;
   flex: 1;
 }
+
+/*-------------------Content---------------------*/
 
 .header {
   width: 100vw;
@@ -19,53 +26,12 @@
   top: 6rem;
   position: absolute;
 
-  .logo {
-    display: flex;
-    flex-direction: column;
-    margin-left: 0.8rem;
-
-    &__title {
-      color: $color-primary-color;
-      @include logo_title();
-    }
-
-    &__subtitle {
-      color: $color-light-xl;
-      @include logo_subtitle();
-      margin-top: 1rem;
-      text-align: center;
-    }
+  &__burger {
+    display: none;
   }
 
-  .menu {
-    display: flex;
-    width: 43.4rem;
-
-    .list {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-
-      &__item {
-        display: flex;
-        align-items: center;
-      }
-
-      &__link {
-        color: $color-light-xl;
-        @include paragraph-l();
-
-        &_active {
-          border-bottom: solid 0.3rem #F1CDB3;
-          color: $color-light-s;
-        }
-
-        &_disabled {
-          color: $color-dark-s;
-        }
-      }
-    }
-  }
+  @include logo($color-primary-color, $color-light-xl);
+  @include header-nav($color-light-s, $color-dark-s);
 }
 
 .main {
@@ -91,7 +57,7 @@
 
         &__title {
           color: $color-light-xl;
-          @include h2();
+          @include h2(4.4rem);
           max-width: 31rem;
         }
 
@@ -151,7 +117,7 @@
     }
 
     &__title {
-      @include h3();
+      @include h3(3.5rem);
       color: $color-dark-l;
 
       span {
@@ -190,7 +156,7 @@
     }
 
     &__title {
-      @include h3();
+      @include h3(3.5rem);
       color: $color-dark-l;
       max-width: 40rem;
       text-align: center;
@@ -203,19 +169,22 @@
 
     &__content {
       display: flex;
+      justify-content: center;
       position: relative;
-      height: 438.667px;
-      overflow: hidden;
-      padding-left: 16px;
       margin: 58px 0;
       width: 100%;
     }
 
+    &__slider {
+      overflow: hidden;
+      width: 1079px;
+    }
+
     &__cards {
       display: flex;
-      flex-wrap: wrap;
       position: relative;
-      justify-content: center;
+      right: 0;
+      transition: 0.25s ease-in-out;
     }
 
     &__card {
@@ -231,10 +200,6 @@
         box-shadow: 0 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
       }
 
-      &-image {
-        width: 100%;
-      }
-
       &-content {
         display: flex;
         flex-direction: column;
@@ -243,7 +208,7 @@
       }
 
       &-title {
-        @include h4();
+        @include h4(2rem);
         text-align: center;
         margin: 3rem 0;
       }
@@ -253,16 +218,18 @@
       }
     }
 
-    .slider__button {
+    .slider__button,
+    .slider__button_reverted {
       @include slider__button();
       top: calc(50% - 52px / 2);
+    }
+
+    .slider__button {
       left: 40px;
     }
 
     .slider__button_reverted {
-      @include slider__button();
-      top: calc(50% - 52px / 2);
-      right: 24px;
+      right: 40px;
 
       &::before {
         top: calc(50% + 0.3rem);
@@ -285,7 +252,7 @@
     }
 
     &__title {
-      @include h3();
+      @include h3(3.5rem);
       text-align: center;
       color: $color-dark-l;
       margin-left: 1.8rem;
@@ -299,19 +266,19 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      column-gap: 12rem;
-      row-gap: 5.5rem;
-      margin-top: 5.9rem;
-      padding-left: 1.8rem;
+      margin-left: 10px;
 
       &-item {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        width: 20%;
+        margin-top: 60px;
+        padding: 0 12px;
       }
 
       &-text {
-        @include h4();
+        @include h4(2rem);
         margin-top: 3rem;
         color: $color-dark-l;
         text-align: center;
@@ -346,9 +313,10 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      text-align: center;
 
       &-title {
-        @include h3();
+        @include h3(3.5rem);
         color: $color-dark-l;
 
         span {
@@ -358,7 +326,7 @@
 
       &-subtitle {
         margin-top: 2rem;
-        @include h5();
+        @include h5(1.5rem);
         color: $color-dark-l;
       }
 
@@ -376,7 +344,7 @@
         }
 
         a {
-          @include h4();
+          @include h4(2rem);
         }
       }
 
@@ -389,62 +357,35 @@
   }
 }
 
-.footer {
-  padding: 4rem 0 0 1rem;
-  background: $footer-gradient-background;
+@include footer;
+@include pop-up;
 
-  &__content {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+/*-------------------Animations---------------------*/
+
+@keyframes modalWindowAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(.1);
   }
 
-  &__contacts {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.6rem;
+  25% {
+    opacity: .5;
+    transform: scale(.5);
+  }
 
-    &-title {
-      span {
-        @include h3();
-        display: block;
-        color: $color-light-xl;
-      }
-    }
+  60% {
+    opacity: 1;
+    transform: scale(.8);
+  }
 
-    &-mail,
-    &-phone,
-    &-location {
-      display: flex;
-      align-items: center;
-
-      img {
-        margin-right: 2rem;
-      }
-
-      a {
-        @include h4();
-        color: $color-primary-color;
-
-        span {
-          display: block;
-        }
-      }
-    }
-
-    &-mail,
-    &-phone {
-      margin-top: 4.3rem;
-    }
-
-    &-location {
-      margin-top: 3.4rem;
-    }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
+/*-------------------Adaptive---------------------*/
 
-///////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
 
   .wrapper {
@@ -462,7 +403,6 @@
       width: 44.3rem;
     }
   }
-
 
   .main {
     .hero {
@@ -511,296 +451,268 @@
     }
 
     .pets {
-      background-color: $color-light-l;
-      padding: 8rem 0 10rem;
-
-      &__wrapper {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-      }
-
       &__title {
-        @include h3();
-        color: $color-dark-l;
-        max-width: 40rem;
-        text-align: center;
-        margin-left: 1.8rem;
-
-        span {
-          display: block;
-        }
+        margin-left: 0.8rem;
       }
 
-      &__content {
-        display: flex;
-        align-items: center;
-      }
-
-      &__cards {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 8rem 0; //
-        margin-left: 16px;
+      &__slider {
+        width: 620px;
       }
 
       &__card {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        border-radius: 0.9rem;
-        margin: 0 8rem;
-        background-color: $color-light-s;
-        transition: ease-out 0.2s;
-
-        &:hover {
-          background-color: $color-light-xl;
-          box-shadow: 0 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
-        }
-
-        &-image {
-          width: 100%;
-        }
-
-        &-content {
-          display: flex;
-          flex-direction: column;
-          padding-bottom: 3rem;
-          align-items: center;
-        }
-
-        &-title {
-          @include h4();
-          text-align: center;
-          margin: 3rem 0;
-        }
-
-        &-button {
-          @include button_secondary();
-        }
+        margin: 0 2rem;
       }
 
       .slider__button {
-        @include slider__button();
+        left: 30px;
       }
 
       .slider__button_reverted {
-        @include slider__button();
-
-        &::before {
-          top: calc(50% + 0.3rem);
-          transform: rotate(180deg);
-        }
+        right: 30px;
       }
 
       &__button {
-        @include button_primary();
-        margin-left: 1.8rem;
+        margin-left: 0;
       }
     }
 
     .help {
-      margin: 7.6rem 0 10rem;
-
-      &__content {
-        display: flex;
-        flex-direction: column;
-      }
-
       &__title {
-        @include h3();
-        text-align: center;
-        color: $color-dark-l;
-        margin-left: 1.8rem;
-
-        span {
-          display: block;
-        }
+        margin-left: 0;
       }
 
       &__list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        margin: 0 10px;
         align-items: center;
-        column-gap: 12rem;
-        row-gap: 5.5rem;
-        margin-top: 5.9rem;
-        padding-left: 1.8rem;
 
         &-item {
-          display: flex;
-          flex-direction: column;
-        }
-
-        &-text {
-          @include h4();
-          margin-top: 3rem;
-          color: $color-dark-l;
-          text-align: center;
+          width: 33.3333%;
+          margin-top: 57px;
         }
       }
     }
 
     .donation {
-      display: flex;
-      padding: 8.2rem 0 10rem;
-      background-color: $color-light-l;
-
-      .wrapper {
-        flex: none;
-      }
-
       &__content {
-        display: flex;
-        justify-content: center;
-        margin-left: 1.5rem;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin: 0 30px 0 0;
       }
 
       &__image-wrapper {
-        display: flex;
-        justify-content: center;
+        margin-top: 60px;
+      }
+    }
+  }
+
+  @include footer__adaptive_768;
+  @include pop-up__adaptive_768;
+}
+
+@media screen and (max-width: 767px) {
+  .header__burger {
+    display: flex;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    right: 10px;
+    top: 10px;
+    z-index: 4;
+    transition: .2s ease-in-out;
+
+    & > span,
+    &::before,
+    &::after {
+      position: absolute;
+      background-color: $color-primary-color;
+      width: 100%;
+      height: 2px;
+    }
+
+    & > span {
+      left: 0;
+      top: 9px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      left: 0;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  .header__burger_active {
+    transform: rotate(90deg);
+  }
+
+  .header {
+    & .menu {
+      position: absolute;
+      width: 320px;
+      justify-content: center;
+      right: 0;
+      visibility: hidden;
+      z-index: 3;
+      background-color: $color-dark-3xl;
+
+      & .list {
+        flex-direction: column;
         align-items: center;
+
+        &__item {
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    & .menu_active {
+      visibility: visible;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .wrapper {
+    max-width: 30rem;
+  }
+
+  .header {
+    .logo {
+      &__title {
+        z-index: 2;
       }
 
-      &__information {
-        max-width: 38rem;
-        margin-left: 3rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+      &__subtitle {
+        z-index: 2;
+      }
+    }
 
-        &-title {
-          @include h3();
-          color: $color-dark-l;
+    .list {
+      margin-top: 30px;
+    }
+  }
 
-          span {
-            display: block;
+  .main {
+    .hero {
+      &__content {
+        .content-section {
+          &__title {
+            @include h2(2.5rem);
+            text-align: center;
+            padding: 0 40px;
           }
         }
+      }
 
-        &-subtitle {
-          margin-top: 2rem;
-          @include h5();
-          color: $color-dark-l;
+      &__image-wrapper {
+        padding: 0;
+      }
+    }
+
+    .about {
+      &__title {
+        @include h3(2.5rem);
+        text-align: center;
+      }
+
+      &__image-wrapper {
+        margin-top: 40px;
+        margin-left: 0;
+
+        .about__image {
+          width: 220px;
+          height: 300px;
         }
+      }
+    }
 
-        &-card {
-          @include button_primary();
-          border-radius: 1rem;
-          padding: 1rem 1.5rem;
-          display: flex;
-          margin-top: 2rem;
-          width: 35rem;
-          height: 4.3rem;
+    .pets {
+      &__title {
+        @include h3(2.5rem);
+      }
 
-          img {
-            margin-right: 1.5rem;
-          }
+      .slider__button,
+      .slider__button_reverted {
+        bottom: -70px;
+        top: unset;
+      }
 
-          a {
-            @include h4();
-          }
+      .slider__button {
+        left: 60px;
+      }
+
+      .slider__button_reverted {
+        right: 60px;
+      }
+
+      &__slider {
+        width: 310px;
+      }
+
+      &__button {
+        margin-top: 50px;
+      }
+    }
+
+    .help {
+      &__title {
+        @include h3(2.5rem);
+      }
+
+      &__list {
+        align-items: unset;
+
+        &-item {
+          width: 50%;
+          margin-top: 50px;
         }
 
         &-text {
-          @include paragraph-s();
-          color: $color-dark-m;
-          margin-top: 2rem;
+          @include h4(1.5rem);
         }
       }
     }
+
+    .donation {
+      &__information {
+        max-width: unset;
+        margin-left: unset;
+        align-items: center;
+
+        &-title {
+          @include h3(2.5rem);
+          text-align: center;
+        }
+
+        &-subtitle {
+          @include h5(1.5rem);
+        }
+
+        &-card > a {
+          @include h4(1.5rem);
+        }
+
+        &-card {
+          width: 290px;
+          height: unset;
+        }
+      }
+
+      &__image {
+        width: 260px;
+      }
+    }
   }
+
+  @include footer__adaptive_320;
+  @include pop-up__adaptive_320;
 }
-
-
-.popup {
-  display: none;
-  width: 100%;
-  height: 2000px;
-  background: rgba(41, 41, 41, 0.6);
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-
-  &__close {
-    @include pagination_button();
-    position: absolute;
-    right: -48px;
-    top: -39px;
-
-    &::before {
-      content: url("../../assets/icons/Vector.svg");
-      position: absolute;
-      top: 38%;
-      right: 36%;
-    }
-
-    &:hover {
-      background-color: $color-primary-color;
-    }
-  }
-
-  &__content {
-    position: relative;
-    display: flex;
-    margin: 40px auto 0px auto;
-    width: 900px;
-    height: 500px;
-    background-color: $color-light-s;
-    border-radius: 10px;
-    transition: .3s ease-in-out;
-  }
-
-  &__img {
-    width: 500px;
-    height: 500px;
-
-    img {
-      width: 100%;
-    }
-  }
-
-  &__description {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 50px;
-    padding-left: 30px;
-  }
-
-  &__title {
-    @include h3();
-    margin-bottom: 10px;
-  }
-
-  &__subtitle {
-    @include h4();
-    margin-bottom: 43px;
-  }
-
-  &__paragraph {
-    width: 350px;
-
-    h5 {
-      @include h5();
-    }
-  }
-
-  &__info {
-    @include h5();
-    display: flex;
-    flex-direction: column;
-    padding-left: 30px;
-
-    &:nth-of-type(1) {
-      margin-top: 40px;
-    }
-
-    li {
-      margin-top: 10px;
-    }
-  }
-}
-

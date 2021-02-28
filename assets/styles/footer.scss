@@ -1,0 +1,101 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+@mixin footer {
+  .footer {
+    padding: 4rem 0 0 1rem;
+    background: $footer-gradient-background;
+
+    &__content {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    &__contacts {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1.6rem;
+
+      &-title {
+        span {
+          @include h3(3.5rem);
+          display: block;
+          color: $color-light-xl;
+        }
+      }
+
+      &-mail,
+      &-phone,
+      &-location {
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-right: 2rem;
+        }
+
+        a {
+          @include h4(2rem);
+          color: $color-primary-color;
+
+          span {
+            display: block;
+          }
+        }
+      }
+
+      &-mail,
+      &-phone {
+        margin-top: 4.3rem;
+      }
+
+      &-location {
+        margin-top: 3.4rem;
+      }
+    }
+  }
+}
+
+@mixin footer__adaptive_768 {
+  .footer {
+    padding: 1rem 0 0 1rem;
+
+    &__content {
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 0 46px 0 28px;
+    }
+
+    &__image-wrapper {
+      padding-left: 170px;
+    }
+
+    &__contacts {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+@mixin footer__adaptive_320 {
+  .footer {
+    &__image-wrapper {
+      padding-left: 0;
+
+      & img {
+        width: 260px;
+        height: 269px;
+      }
+    }
+
+    &__contacts {
+      &-title {
+        text-align: center;
+
+        span {
+          @include h3(2.5rem);
+        }
+      }
+    }
+  }
+}
