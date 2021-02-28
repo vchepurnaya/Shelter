@@ -1,7 +1,7 @@
 'use strict'
 
-let pageCounter = 0;
 const pagesCounter = [15, 23, 47];
+let pageCounter = 0;
 let maxPageCounter = CheckPagesAmount(pagesCounter);
 
 function moveToNextSlider() {
@@ -38,4 +38,3 @@ function adaptiveMenu() {
     btn.classList.toggle('header__burger_active');
     menu.classList.toggle('menu_active');
 }
-

@@ -4,6 +4,7 @@
 @import "../../assets/styles/pop-up";
 @import "../../assets/styles/logo";
 @import "../../assets/styles/header-nav";
+@import "../../assets/styles/burger-menu";
 
 :root {
   font-size: 10px;
@@ -12,6 +13,7 @@
 .wrapper {
   display: flex;
   margin: 0 auto;
+  padding: 0 10px;
   position: relative;
   max-width: 120rem;
   justify-content: space-between;
@@ -37,6 +39,8 @@
 .main {
   display: flex;
   flex-direction: column;
+
+  /*-------------------Hero_Section---------------------*/
 
   .hero {
     display: flex;
@@ -85,6 +89,8 @@
       max-height: 72.8rem;
     }
   }
+
+  /*-------------------About_Section---------------------*/
 
   .about {
     display: flex;
@@ -139,6 +145,8 @@
       }
     }
   }
+
+  /*-------------------Pets_Section---------------------*/
 
   .pets {
     background-color: $color-light-l;
@@ -243,6 +251,8 @@
     }
   }
 
+  /*-------------------Help_Section---------------------*/
+
   .help {
     margin: 8rem 0 10rem;
 
@@ -285,6 +295,8 @@
       }
     }
   }
+
+  /*-------------------Donation_Section---------------------*/
 
   .donation {
     display: flex;
@@ -405,6 +417,9 @@
   }
 
   .main {
+
+    /*-------------------Hero_Section---------------------*/
+
     .hero {
       padding-top: 15rem;
 
@@ -433,6 +448,8 @@
       }
     }
 
+    /*-------------------About_Section---------------------*/
+
     .about {
       &__wrapper {
         flex-direction: column-reverse;
@@ -449,6 +466,8 @@
         }
       }
     }
+
+    /*-------------------Pets_Section---------------------*/
 
     .pets {
       &__title {
@@ -476,6 +495,8 @@
       }
     }
 
+    /*-------------------Help_Section---------------------*/
+
     .help {
       &__title {
         margin-left: 0;
@@ -491,6 +512,8 @@
         }
       }
     }
+
+    /*-------------------Donation_Section---------------------*/
 
     .donation {
       &__content {
@@ -510,73 +533,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .header__burger {
-    display: flex;
-    position: relative;
-    width: 30px;
-    height: 20px;
-    right: 10px;
-    top: 10px;
-    z-index: 4;
-    transition: .2s ease-in-out;
-
-    & > span,
-    &::before,
-    &::after {
-      position: absolute;
-      background-color: $color-primary-color;
-      width: 100%;
-      height: 2px;
-    }
-
-    & > span {
-      left: 0;
-      top: 9px;
-    }
-
-    &::before,
-    &::after {
-      content: '';
-      left: 0;
-    }
-
-    &::before {
-      top: 0;
-    }
-
-    &::after {
-      bottom: 0;
-    }
-  }
-
-  .header__burger_active {
-    transform: rotate(90deg);
-  }
-
-  .header {
-    & .menu {
-      position: absolute;
-      width: 320px;
-      justify-content: center;
-      right: 0;
-      visibility: hidden;
-      z-index: 3;
-      background-color: $color-dark-3xl;
-
-      & .list {
-        flex-direction: column;
-        align-items: center;
-
-        &__item {
-          margin-bottom: 30px;
-        }
-      }
-    }
-
-    & .menu_active {
-      visibility: visible;
-    }
-  }
+  @include burger_menu($color-primary-color, $color-dark-3xl);
 }
 
 @media screen and (max-width: 320px) {
@@ -602,6 +559,9 @@
   }
 
   .main {
+
+    /*-------------------Hero_Section---------------------*/
+
     .hero {
       &__content {
         .content-section {
@@ -617,6 +577,8 @@
         padding: 0;
       }
     }
+
+    /*-------------------About_Section---------------------*/
 
     .about {
       &__title {
@@ -634,6 +596,8 @@
         }
       }
     }
+
+    /*-------------------Pets_Section---------------------*/
 
     .pets {
       &__title {
@@ -663,6 +627,8 @@
       }
     }
 
+    /*-------------------Help_Section---------------------*/
+
     .help {
       &__title {
         @include h3(2.5rem);
@@ -681,6 +647,8 @@
         }
       }
     }
+
+    /*-------------------Donation_Section---------------------*/
 
     .donation {
       &__information {

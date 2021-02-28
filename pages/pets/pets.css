@@ -348,7 +348,7 @@
   }
   .pet-header__burger > span, .pet-header__burger::before, .pet-header__burger::after {
     position: absolute;
-    background-color: #F1CDB3;
+    background-color: #545454;
     width: 100%;
     height: 2px;
   }

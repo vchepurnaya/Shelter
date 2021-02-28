@@ -5,7 +5,6 @@
 @import "../../assets/styles/logo";
 @import "../../assets/styles/header-nav";
 
-
 .pet-wrapper {
   display: flex;
   margin: 0 auto;
@@ -25,36 +24,7 @@
   z-index: 2;
 
   @include logo($color-dark-l, $color-dark-3xl);
-
-  .menu {
-    display: flex;
-    width: 43.4rem;
-
-    .list {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-
-      &__item {
-        display: flex;
-        align-items: center;
-      }
-
-      &__link {
-        color: $color-light-xl;
-        @include paragraph-l();
-
-        &_active {
-          border-bottom: solid 0.3rem #F1CDB3;
-          color: $color-dark-3xl;
-        }
-
-        &_disabled {
-          color: $color-dark-l;
-        }
-      }
-    }
-  }
+  @include header-nav($color-dark-3xl, $color-dark-l);
 }
 
 .pets {
@@ -175,7 +145,7 @@
       &::before,
       &::after {
         position: absolute;
-        background-color: $color-primary-color;
+        background-color: $color-dark-l;
         width: 100%;
         height: 2px;
       }

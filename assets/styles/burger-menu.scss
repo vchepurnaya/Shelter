@@ -1,0 +1,69 @@
+@mixin burger_menu($menu_color, $background_color) {
+  .header__burger {
+    display: flex;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    right: 10px;
+    top: 10px;
+    z-index: 4;
+    transition: .2s ease-in-out;
+
+    & > span,
+    &::before,
+    &::after {
+      position: absolute;
+      background-color: $menu_color;
+      width: 100%;
+      height: 2px;
+    }
+
+    & > span {
+      left: 0;
+      top: 9px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      left: 0;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  .header__burger_active {
+    transform: rotate(90deg);
+  }
+
+  .header {
+    & .menu {
+      position: absolute;
+      width: 320px;
+      justify-content: center;
+      right: 0;
+      visibility: hidden;
+      z-index: 3;
+      background-color: $background_color;
+
+      & .list {
+        flex-direction: column;
+        align-items: center;
+
+        &__item {
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    & .menu_active {
+      visibility: visible;
+    }
+  }
+}
